@@ -4,7 +4,7 @@
 * 언어: Python과 Java
 
 ## :one: 진행 방식
-1. 매주 [Issue등록](https://github.com/2024-coding-test-study/2024Study/issues) 후 브랜치 생성   
+1. 매주 [Issue등록](https://github.com/2024-coding-test-study/2024Study/issues) 후 브랜치 생성(main 브랜치 기준으로 브랜치 생성)   
    - 매주 정해진 문제말고 본인이 따로 푼 문제도 Issue등록 후 브랜치에서 문제 풀이 진행   
 2. 브랜치에서 작업 후, [PR올리기](https://github.com/2024-coding-test-study/2024Study/pulls)
    - PR을 템플릿 양식에 맞춰서 작성
