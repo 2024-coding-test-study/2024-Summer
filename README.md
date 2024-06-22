@@ -1,6 +1,6 @@
 # :green_book: 2024 코딩 테스트 스터디 소개
 * 약 2달간 진행되는 코딩 테스트를 위한 스터디
-  - 2달간 [이것이 코딩테스트다](https://github.com/ndb796/python-for-coding-test) 책 마스터하고 백준과 프로그래머스에서 기출문제 풀이 예정
+  - 2달간 [이것이 취업을 위한 코딩 테스트다](https://github.com/ndb796/python-for-coding-test) 책 마스터하고 백준과 프로그래머스에서 기출문제 풀이 예정
 * 언어: Python과 Java
 
 ## :one: 진행 방식
