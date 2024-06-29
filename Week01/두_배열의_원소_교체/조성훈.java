@@ -25,8 +25,11 @@ public class Main{
 
         int temp = 0;
         for(int i =0;i<NK[1];i++){
-            //temp = AArray[i];
-            AArray[i] = BArray[NK[1]-i-1];
+            if(AArray[i] < BArray[NK[0]-i-1]){
+                AArray[i] = BArray[NK[0]-i-1];
+            }else{
+                break;
+            }
         }
         for(int i : AArray){
             result += i;
