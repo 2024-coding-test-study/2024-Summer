@@ -1,18 +1,20 @@
 
-public class Greedy{
+public class Main{
 
-    public int lawOfLargeNumber(int[] numList, int k, int m){
-        int large1 = numList[0];
-        int large2 = 0;
-        for(int i = 1;i<numList.length;i++){
-            if(large1<numList[i]){
-                large1 = numList[i];
-            } else if (large1==numList[i]) {
-                large2 = numList[i]
+
+    public int LRUD(int N, String[] way, int x, int y){
+        for(String s : way){
+            if(x<0 && x>=N && y<0 && y>=N){
+                return false;
+            }if(s.equals(l)){
+
             }
-            if(large2<numList[i]&&){
-                large2 = numList[i];
+        }
+        for(int i =0; i<way.length; i++){
+            if(x<0 && x>=N && y<0 && y>=N){
+                return false;
             }
+
         }
     }
     public static void main(String[] args) {
