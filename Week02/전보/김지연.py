@@ -1,4 +1,4 @@
-import heaqpe
+import heapq
 import sys
 input = sys.stdin.readline
 INF = int(1e10)
@@ -17,7 +17,7 @@ def dijkstra(start):
   distance[start] = 0
   while q:
     dist, now = heapq.heappop(q)
-    if dist > distance[new]:
+    if dist > distance[now]:
       continue
     #now에 연결된 노드
     for i in graph[now]:
