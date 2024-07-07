@@ -1,2 +1,2 @@
 ### 알고리즘
-- grap theory
+- graph theory
