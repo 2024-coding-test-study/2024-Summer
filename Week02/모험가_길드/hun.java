@@ -1,28 +1,33 @@
-package 모험가_길드;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.util.*;
 
-public class hun {
+public class Main {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int[] list1 = Arrays.stream(br.readLine().split(" "))
+        int n = Integer.parseInt(br.readLine());
+        int[] member = Arrays.stream(br.readLine().split(" "))
                 .mapToInt(Integer::parseInt)
                 .toArray();
-        Arrays.sort(list1);
-        int now=list1[0];
-        int count=0;
-        int group=0;
-        for(int i=0;i<list1.length;i++){
-            if(list1[i]==now){
-                count++;
+        Arrays.sort(member);
+        int before = member[0];
+        int countEqualLevel = 0;
+        int result = 0;
+        for(int i =0;i<member.length;i++){
+            if(before==member[i]){
+                countEqualLevel++;
             }else{
-                group= count/list1[i-1];
-                count=0;
+                result += countEqualLevel/before;
+                int nextIdx = i+ before- countEqualLevel%before;
+                if(countEqualLevel%before!=0&member.length>nextIdx){
+                    i = nextIdx;
+                }
+                before = member[i];
             }
-        }
-    }
 
+        }System.out.println(result);
+        br.close();
+    }
 }
