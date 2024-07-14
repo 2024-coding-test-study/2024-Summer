@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 n, m = map(int, input().split()) # 집과 길 개수 입력 받기
 p = [0] * (n + 1)
 edges = []
