@@ -1,5 +1,8 @@
 def solution(s):
     zip_len = []  # 압축한 문자열 길이 저장할 리스트 초기화
+    
+    if len(s) == 1 : # 만약 문자열의 길이가 1이라면 1 반환
+        return 1
 
     for i in range(1, len(s) // 2 + 1):
         result = []  # 길이 i로 쪼개진 문자열 저장할 리스트 초기화
