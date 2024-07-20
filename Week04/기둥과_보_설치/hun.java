@@ -127,16 +127,30 @@
                         }
                     }
                 }
-            }resultList.sort((o1, o2) -> {
+            }
+            //정렬방법이 잘못됐었음
+//            resultList.sort((o1, o2) -> {
+//                if (o1[0] == o2[0]) {
+//                    return Integer.compare(o1[1], o2[1]);
+//                }
+//                return Integer.compare(o1[0], o2[0]);
+//            });
+            resultList.sort((o1, o2) -> {
+                // 첫 번째 정수를 비교합니다.
                 if (o1[0] == o2[0]) {
+                    // 첫 번째 정수가 같다면 두 번째 정수를 비교합니다.
+                    if (o1[1] == o2[1]) {
+                        // 첫 번째와 두 번째 정수가 같다면 세 번째 정수를 비교합니다.
+                        return Integer.compare(o1[2], o2[2]);
+                    }
+                    // 첫 번째 정수는 같고 두 번째 정수는 다르다면 두 번째 정수를 기준으로 정렬합니다.
                     return Integer.compare(o1[1], o2[1]);
                 }
+                // 첫 번째 정수가 다르다면 첫 번째 정수를 기준으로 정렬합니다.
                 return Integer.compare(o1[0], o2[0]);
             });
             return resultList;
         }
-
-
     }
 public class Main {
     public static void main(String[] args) {
