@@ -2,6 +2,17 @@
 #스택에 과제를 넣고, pop해서 해결, 해결하다가 새로운 과제가 나온다? 해결 못하면 다시 스택에 넣고 새로운 과제 해결
 #t는 학기 반복문이 돌아가면서 줄어들게
 #time: 1h
+
+'''
+p = input()
+score, t = 0, 0
+if isProblem(int(p[0])):
+  #과제가 있다면
+  score, t = int(p[2:-2]), int(p[-1])-1 #과제를 받자마자 시작
+  이렇게 입력받으니까 ValueError가 뜸
+  새로 알게 된것
+  :p = list(map(int, input().split())) 이렇게 입력 수가 일정하지 않으면 list로 반환하자 map 말고
+'''
 n = int(input())
 a = []
 def isProblem(p): #과제가 주어지는지 아닌지 확인
