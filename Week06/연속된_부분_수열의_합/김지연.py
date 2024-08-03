@@ -1,17 +1,25 @@
 def solution(sequence, k):
     answer = []
-    #sequence길이 100만 -> 완전탐색 가능 -> 100만 * 100만 이중 배열이므로 안됌...
-    #사고과정: sequence를 idx=0부터 끝까지 idx=1부터 끝까지 ... idx끝부터 끝 까지 부분 수열 만들어서 k가 될 수 있는거 찾기
-    #2차시도: 이중배열이면 시간초과나므로 .. 1개, 2개, 3개 ... len(sequence)개 씩 끊어서 k가 될 수 있는지확인 -> 1번이랑 똑같은 과정임..
-    #오름차순은 인접한 두 수가 같을 수도 있는지 여부를 명확하게 알려주지 않지만 비내림차순은 같을 수도 있음을 명확히 해준 것
-    #idx = 0 부터 계산하다가 k넘어가면 멈추고... idx=1 부터 계산하다가 k넘어가면 머추고... 원소가 1, k = 100만일 경우
-    total = 0
-    for i in range(len(sequence)):
-        for j in range(i, len(sequence)):
-            if i == j:
-                if sequence[i] == k:
-                    answer.append((0, i, j))
-            elif sum(sequence[i:j+1]) == k:
-                answer.append((j-i, i, j)) #j-i 수열길이도 같이 저장
-    answer.sort()
-    answer = answer[0][1:]
+    #투포인터 사용 start, end
+    #start와 end 를 0으로 시작해서 합계가 k 보다 작다면 end를 1씩 증가
+    # k == 합계이면 원소 개수 비교해서 더 작은 원소 개수로 치환
+    # start = 1로 했을때, start=3으로 했을 때, start = 4로 했을 때 위 과정 반복
+    end = 0
+    n = len(sequence)
+    invertal = n
+    idx = []
+    sum = 0
+    for start in range(len(sequence)):
+        while sum < k and end < n:
+            sum += sequence[end]
+            end += 1
+        #k==sum을 만족했을 때 요소길이 비교
+        if sum == k and invertal > end-1-start:
+            #최소 인덱스 저장
+            idx = [start, end-1]
+            invertal = end-1-start
+        #start로 start부터 len(sequence)-1까지 모두 탐색해서 합계가 k인 요소의 개수를 찾은 후 다음 start로 변경후 위 과정을 반복해야하므로 sum에서 현재 start를 빼준다
+        # start =0 일때 start =1 일때....
+        sum -= sequence[start]
+        
+    return idx
