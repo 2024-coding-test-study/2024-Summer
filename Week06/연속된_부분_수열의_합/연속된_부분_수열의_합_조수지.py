@@ -1,27 +1,19 @@
-# 시간초과 ㅠ
+def solution(sequence, k) :
+    start, end = 0, 0 # 현재 부분 수열의 인덱스를 저장할 변수
+    total = sequence[0]
+    sequence += [0]
+    best_start, best_end = 1000000, 2000000 # 합이 k인 부분 수열의 인덱스를 저장할 변수
 
-from collections import deque
-
-def solution(sequence, k):
-  answer = deque([])
-  l = 99999 # 부분 수열의 길이 저장할 변수
-  
-  for i in range(len(sequence)) :
-    cur_sum = 0 # 연속된 수열의 합 저장할 변수
-    
-    for j in range(i, len(sequence)) :
-      if sequence[j] > k : # k보다 큰 값을 만나면 종료
-        break
-      
-      cur_sum += sequence[j]
-      
-      if cur_sum == k : # 합이 k인 부분 수열을 찾았을 때
-          if not answer or (j - i + 1) < l : # 최초로 찾은 부분 수열이거나 이전에 찾은 부분 수열보다 짧다면
-            if answer : # answer에 이미 존재할 때는
-              answer.clear() # 비워줌
-              
-            answer.append(i)
-            answer.append(j)
-            l = j - i + 1
+    while end < len(sequence) - 1 : # end 값이 sequence를 벗어나지 않을 동안
+        if total <= k : # 부분 수열의 합이 k보다 작거나 같을 때
+            if total == k and end - start < best_end - best_start : # 합이 k고 이전에 찾은 수열보다 길이가 짧다면
+                best_start, best_end = start, end # 인덱스 업데이트
+                
+            end += 1
+            total += sequence[end]
             
-  return list(answer)
+        else : # 부분 수열의 합이 k보다 클 때
+            start += 1
+            total -= sequence[start - 1]
+
+    return [best_start, best_end]
