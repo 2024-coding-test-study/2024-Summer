@@ -8,9 +8,10 @@ loc.sort()
 start, end = 1, loc[-1] - loc[0]  # 가능한 최소, 최대 거리
 
 result = 0
-mid = (start + end) // 2
-while True:
-     #gap이 가장 넓은 경우가 (가장 긴 gap)/2이니까 mid를 초반에 설정해 놓고, 가장 인접한 것 중 최대 값을 구하는 것이니까 gap을
+
+while start <= end:
+    mid = (start + end) // 2 
+    #가장 작은 gap과 가장 큰 gap에서 가장 인전한 gap중에서 가장 큰 gap은 (가장 작은 gap + 가장 큰 gap) // 2 일 수 밖에 없음
     current = loc[0]
     count = 1  # 첫 번째 위치에 공유기를 설치했다고 가정
 
@@ -18,11 +19,11 @@ while True:
         if loc[i] - current >= mid:
             count += 1
             current = loc[i]
-    if c == count:
+
+    if count >= c:
         result = mid  # 가능한 최대 거리를 업데이트
-        break
-       
+        start = mid + 1
     else:
-        mid = mid - 1
+        end = mid - 1
 
 print(result)
