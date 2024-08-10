@@ -20,18 +20,18 @@ for _ in range(n) :
   houses.append(int(input()))
   
 houses.sort() # 오름차순 정렬
-low, high = 1, houses[-1] - houses[0]
+low, high = 1, houses[-1] - houses[0] # 두 집이 최소로 떨어질 수 있는 거리는 1이므로 1로 초기화
 
 best_dist = 0
 
 while low <= high :
-  mid = (low + high) // 2
+  mid = (low + high) // 2 # 이진 탐색을 위해 mid 값 지정
   
   if install_ok(houses, c, mid) :
-    best_dist = mid
-    low = mid + 1
+    best_dist = mid # 최소 거리를 업데이트 하고
+    low = mid + 1 # 더 넓게 띄울 수 있는지 확인
     
-  else :
+  else : # 더 짧은 거리로 띄울 수 있는지 확인
     high = mid - 1
     
 print(best_dist)
