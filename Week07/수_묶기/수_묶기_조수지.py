@@ -1,4 +1,5 @@
-n = int(input())
+# 왜 안돼???????
+'''n = int(input())
 nums = []
 
 for _ in range(n):
@@ -28,4 +29,48 @@ while idx < len(nums): # idx가 리스트를 벗어나지 않을 동안 반복
     SUM += nums[idx]
     idx += 1
 
-print(SUM)
+print(SUM)'''
+
+n = int(input())
+plus = [] # 1보다 큰 수를 저장할 리스트
+minus = [] # 0보다 작은 수를 저장할 리스트
+result = 0 # 합을 나타낼 변수 0으로 초기화
+zero_count = 0 # 0이 있는지 확인할 변수
+
+for i in range(n) :
+  INPUT = int(input())
+  
+  if INPUT > 1 :
+    plus.append(INPUT)
+  elif INPUT < 0 :
+    minus.append(INPUT)
+  elif INPUT == 0 :
+    zero_count += 1
+  else : # 1을 만나면
+    result += INPUT
+    
+plus.sort(reverse=True) # 내림차순 정렬
+minus.sort() # 오름차순 정렬
+
+idx = 0
+
+while idx < len(plus) :
+  if idx + 1 < len(plus) :
+    result += plus[idx] * plus[idx + 1]
+    idx += 2
+  else : # 마지막 남은 하나를 더해줌
+    result += plus[idx]
+    idx += 1
+    
+idx = 0
+
+while idx < len(minus) :
+  if idx + 1 < len(minus) :
+    result += minus[idx] * minus[idx + 1]
+    idx += 2
+  else : # 음수의 개수가 홀수개라면
+    if zero_count == 0 :
+      result += minus[idx]
+    idx += 1
+
+print(result)
