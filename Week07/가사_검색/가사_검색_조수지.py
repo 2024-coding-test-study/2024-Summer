@@ -1,4 +1,4 @@
-from bisect import bisect_left, bisect_right # 이진탐색 가져오기
+from bisect import bisect_left, bisect_right # 이분탐색
 
 def solution(words, queries) :
   answer = []
@@ -16,7 +16,7 @@ def solution(words, queries) :
     
   # 이분 탐색
   # froaa <= fro?? <= frozz
-  # ????o : oaaaa <= 0???? <= ozzzz. 접두사에 와일드카드 문자가 있으므로 리버스 배열에서 수행.
+  # ????o : oaaaa <= o???? <= ozzzz. 접두사에 와일드카드 문자가 있으므로 리버스 배열에서 수행.
   for q in queries :
     qA = q.replace('?', 'a') # 단어가 소문자로만 이루어져 있으므로 가장 작은 알파벳인 a로 ?를 치환
     qZ = q.replace('?', 'z') # 마찬가지로 가장 큰 알파벳인 z로 ?를 치환
