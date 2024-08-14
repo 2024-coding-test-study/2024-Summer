@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-**********이해 못했음***********아래는 답안
 public class Main{
     public static void main(String[] args) throws IOException {
         //입력값 처리하는 BufferedReader
@@ -20,6 +19,11 @@ public class Main{
                 num[j] = Integer.parseInt(st.nextToken());
             int max = num[N-1];	//마지막 값을 가장 큰 시세로 설정
             //역방향 탐색 진행!
+
+            //맨 뒤를 max로 기입하고 역방향 순차탐색
+            //max보다 큰 값을 만나면 max 치환
+            //max보다 작은 값이라면 answer += max- (현재 탐색중인 값)
+
             for(int j=N-2;j>=0;j--) {
                 if(num[j] <= max)	//가장 큰 시세보다 작은 시세일 때 판매
 
