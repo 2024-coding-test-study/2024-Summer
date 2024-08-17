@@ -7,9 +7,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int[] s = Arrays.stream(br.readLine().split(""))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+//        int[] s = Arrays.stream(br.readLine().split(""))
+//                .mapToInt(Integer::parseInt)
+//                .toArray();
+
+        String s = br.readLine();
         int[] zeroOneCount = new int[2];
         int before = 100;
         for(int i =0; i<s.length;i++){

@@ -1,4 +1,4 @@
-//실패
+//시간초과실패
 import java.util.LinkedList;
 class Solution {
     public static LinkedList<Integer> convertArrayToLinkedList(int[] array) {
