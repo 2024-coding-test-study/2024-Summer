@@ -45,12 +45,16 @@ public class Main {
     public static void fillNode(int x, int y, int n){
         int beforePrice1=0;
         int beforePrice2=0;
+        int beforePrice3=0;
 
         if (y-1>=0){
             beforePrice1 = list2[y-1][x-1];
         }if (y+1<n){
             beforePrice2 = list2[y+1][x-1];
-        }
-        list2[y][x] = list2[y][x]+ Math.max(beforePrice1, beforePrice2);
+        }beforePrice3 = list2[y][x-1];
+
+        int max=beforePrice1>beforePrice2?beforePrice1:beforePrice2;
+        max = max> beforePrice3?max:beforePrice3;
+        list2[y][x] = list2[y][x]+ max;
     }
 }
