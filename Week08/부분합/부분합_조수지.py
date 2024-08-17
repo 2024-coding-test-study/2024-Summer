@@ -1,7 +1,7 @@
 n, s = map(int, input().split()) # 길이와 부분합 입력받기
 nums = list(map(int, input().split()))
 min_len = 999999 # 충분히 크게 잡아줌
-start, end = 0, 00
+start, end = 0, 0
 cur_sum = 0
 
 while end < n : # 범위를 벗어나지 않을 동안 반복
