@@ -13,24 +13,23 @@ for i in range(2, n+1):
             primes[i*j] = False
             j += 1
 
-print(primes)  
 
 start, end = 0, 0
-total = data[start]
+total = 0
 cnt = 0
-while start <= end and end < len(data):
+while start <= end:
   if total == n: #start 포인터 이동해서 다른 구간도 가능한지 검사
     total -= data[start]
     start += 1
     cnt += 1
   elif total < n:
-    end += 1 #end 포인터가 가리키는 요소도 포함
     if end >= len(data):
       break
     total += data[end]
+    end += 1
     
   elif total > n:
     total -= data[start]
     start += 1
-    
+
 print(cnt)
