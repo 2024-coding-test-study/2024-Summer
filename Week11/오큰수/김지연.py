@@ -1,20 +1,15 @@
 import sys
-from collections import deque
 n = int(sys.stdin.readline())
-q = deque(list(map(int, sys.stdin.readline().split())))
+q = list(map(int, sys.stdin.readline().split()))
+#https://www.acmicpc.net/board/view/86770
+#큐말고 스택을 사용...+인덱스
+e = False
+stack = []
+nge = [-1] * n
 
+for i in range(n-1):
+  stack.append(i)
+  while stack and q[stack[-1]] < q[i+1]:
+    nge[stack.pop()] = q[i+1]
+print(*nge)
 
-#시간초과코드
-while len(q) > 1:
-  e = False
-  now = q.popleft()
-  for i in q:
-    if now < i:
-      e = True
-      print(i, end = " ")
-      break
-  if e == False:
-    print(-1, end = " ")
-
-print(-1)
-  
